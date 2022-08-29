@@ -6,7 +6,7 @@ import { Button } from './components/Button';
 
 function App() {
   return (
-    <div className="App">
+    <div className="text-blue-400 App">
       <Button label="hello there"></Button>
     </div>
   );
