@@ -15,7 +15,8 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
     "prepare": "npm run build:lib",
-    "build:lib": "rollup -c"
+    "build:lib": "rollup -c",
+    "chromatic": "npx chromatic --project-token=7520df4481db"
   },
   "eslintConfig": {
     "extends": [
@@ -46,8 +47,11 @@
     ]
   },
   "peerDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.2",
@@ -73,6 +77,7 @@
     "@types/react-dom": "^18.0.6",
     "autoprefixer": "^10.4.8",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.8.0",
     "postcss": "^8.4.16",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -87,5 +92,7 @@
     "typescript": "^4.8.2",
     "web-vitals": "^2.1.4",
     "webpack": "^5.74.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@aberrations-rpg/components@0.0.6"
 }
