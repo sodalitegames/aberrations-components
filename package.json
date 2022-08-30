@@ -15,8 +15,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build:storybook": "build-storybook -s public",
     "prepare": "npm run build:lib",
-    "build:lib": "rollup -c",
-    "chromatic": "npx chromatic --project-token=7520df4481db"
+    "build:lib": "rollup -c"
   },
   "eslintConfig": {
     "extends": [
