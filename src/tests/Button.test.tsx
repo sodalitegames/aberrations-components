@@ -1,9 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+
 import { Button } from '../components/Button/Button';
 
-test('renders learn react link', () => {
-  render(<Button label="hello" />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it('renders the Button component', () => {
+  expect(render(<Button>Hello</Button>)).toMatchSnapshot();
 });
