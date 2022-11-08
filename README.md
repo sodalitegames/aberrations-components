@@ -1,5 +1,5 @@
 # Aberrations RPG Components
 
-### Version 0.0.8
+### Version 0.1.0
 
 - Added `Button` component
