@@ -1,6 +1,6 @@
 {
   "name": "@aberrations-rpg/components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
   "types": "lib/index.d.ts",
@@ -92,6 +92,5 @@
     "web-vitals": "^2.1.4",
     "webpack": "^5.74.0"
   },
-  "readme": "ERROR: No README data found!",
-  "_id": "@aberrations-rpg/components@0.0.6"
+  "readme": "ERROR: No README data found!"
 }
