@@ -20,5 +20,5 @@
     "declarationDir": "lib"
   },
   "include": ["src/components"],
-  "exclude": ["node_modules", "src/stories", "src/tests"]
+  "exclude": ["node_modules", "src/stories", "src/tests", "src/utils"]
 }
