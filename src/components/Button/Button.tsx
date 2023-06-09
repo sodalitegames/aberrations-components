@@ -2,18 +2,18 @@ import React from 'react';
 
 import classNames from '../../utils/classNames';
 
-interface ButtonProps {
+export interface ButtonProps {
   onClick?: () => void;
   classes?: string;
   size?: 'small' | 'standard' | 'large';
-  style?: 'dark' | 'alert' | 'standard' | 'text';
+  theme?: 'dark' | 'alert' | 'standard' | 'text';
   type?: 'rounded' | 'block' | 'inline';
   disabled?: boolean;
   disabledMessage?: string;
   children: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick, classes, size = 'standard', style = 'standard', type = 'block', disabled, disabledMessage }) => {
+export const Button: React.FC<ButtonProps> = ({ children, onClick, classes, size = 'standard', theme = 'standard', type = 'block', disabled, disabledMessage }) => {
   return (
     <>
       <button
@@ -27,11 +27,11 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, classes, size
             : type === 'block'
             ? 'w-full flex justify-center items-center px-4 py-2 rounded-md'
             : '',
-          style === 'dark'
+          theme === 'dark'
             ? 'shadow-sm text-white bg-dark hover:bg-dark-400 focus:ring-dark-200 disabled:bg-dark/70 disabled:text-gray-100'
-            : style === 'alert'
+            : theme === 'alert'
             ? 'shadow-sm text-white bg-red-900/80 hover:bg-red-800/80 focus:ring-red-900/90 disabled:bg-red-900/50 disabled:text-gray-100'
-            : style === 'text'
+            : theme === 'text'
             ? 'text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-600 focus:ring-gray-500 disabled:bg-white disabled:text-gray-300'
             : 'border border-gray-300 shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:ring-gray-500 disabled:bg-gray-50 disabled:border-gray-200 disabled:text-gray-400',
           size === 'small' ? 'text-xs' : size === 'large' ? 'text-md' : 'text-sm',
