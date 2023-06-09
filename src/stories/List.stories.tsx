@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { List } from '../components/List';
+import { List } from '../components';
 
 export default {
   title: 'Components/List',
@@ -11,6 +11,9 @@ export default {
 
 const Template: ComponentStory<typeof List> = args => (
   <List {...args}>
+    <List.Empty heading="this is an empty heading" message="this is an empty message">
+      <p>Ermpty</p>
+    </List.Empty>
     <List.Item heading="this is a heading">
       <p>item #1</p>
     </List.Item>
@@ -19,18 +22,4 @@ const Template: ComponentStory<typeof List> = args => (
 
 export const Example = Template.bind({});
 
-Example.args = {
-  list: [],
-  button: {
-    text: 'click me',
-    click: () => console.log('clicked'),
-  },
-  empty: {
-    heading: 'empty heading',
-    message: 'this is empty!',
-    button: {
-      text: '+ click me',
-      click: () => console.log('clicked'),
-    },
-  },
-};
+Example.args = {};

@@ -1,37 +1,28 @@
-import EmptyState from './EmptyState';
+import React, { ReactNode } from 'react';
 
-import { Button } from '../Button';
+import { Button } from '../../components';
+
 import { ListItem } from './ListItem';
+import { ListEmpty } from './ListEmpty';
+
 import type { ListItemComponent } from './ListItem';
+import type { ListEmptyComponent } from './ListEmpty';
+
 import classNames from '../../utils/classNames';
-import { ReactNode } from 'react';
 
-type ListComponent = React.FunctionComponent<Props> & { Item: ListItemComponent };
+type ListComponent = React.FunctionComponent<ListProps> & { Item: ListItemComponent; Empty: ListEmptyComponent };
 
-type LCButton = {
+type ListButton = {
   text: string;
   click: () => void;
 };
-
-type Empty = {
-  heading: string;
-  message: string;
-  button: LCButton;
-};
-
-interface Props {
-  list: any[];
-  button?: LCButton;
-  empty?: Empty;
+interface ListProps {
+  button?: ListButton;
   classes?: string;
   children: ReactNode;
 }
 
-const List: ListComponent = ({ list, button, empty, classes, children }) => {
-  if (empty && !list.length) {
-    return <EmptyState heading={empty.heading} message={empty.message} button={empty.button} />;
-  }
-
+const List: ListComponent = ({ button, classes, children }) => {
   return (
     <>
       {button ? (
@@ -45,5 +36,6 @@ const List: ListComponent = ({ list, button, empty, classes, children }) => {
 };
 
 List.Item = ListItem;
+List.Empty = ListEmpty;
 
 export { List };
