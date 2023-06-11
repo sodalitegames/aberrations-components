@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { List } from '../components';
+import { List, Button } from '../components';
 
 export default {
   title: 'Components/List',
@@ -11,15 +11,44 @@ export default {
 
 const Template: ComponentStory<typeof List> = args => (
   <List {...args}>
-    <List.Empty heading="this is an empty heading" message="this is an empty message">
-      <p>Ermpty</p>
-    </List.Empty>
-    <List.Item heading="this is a heading">
-      <p>item #1</p>
+    <List.Item
+      heading="Item #1"
+      actions={[
+        { text: 'Edit', click: () => {} },
+        { text: 'Delete', click: () => {} },
+      ]}
+    >
+      <p>This is item #1 with default actions</p>
+    </List.Item>
+    <List.Item
+      heading="Item #2"
+      theme="panel"
+      actions={[
+        { text: 'Edit', click: () => {} },
+        { text: 'Delete', click: () => {} },
+      ]}
+    >
+      <p>This is item #2 with panel actions</p>
+    </List.Item>
+    <List.Item
+      heading="Item #3"
+      actions={[
+        { text: 'Edit', click: () => {}, theme: 'dark' },
+        { text: 'Delete', click: () => {}, theme: 'alert' },
+      ]}
+    >
+      <p>This is item #3 with themed actions</p>
     </List.Item>
   </List>
 );
 
 export const Example = Template.bind({});
 
-Example.args = {};
+Example.args = {
+  length: 2,
+  empty: {
+    heading: 'You do not have any <items>',
+    message: 'Try creating one to get started.',
+    children: <Button>Add New</Button>,
+  },
+};

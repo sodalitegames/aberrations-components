@@ -1,41 +1,37 @@
 import React, { ReactNode } from 'react';
 
-import { Button } from '../../components';
-
 import { ListItem } from './ListItem';
-import { ListEmpty } from './ListEmpty';
+import { Empty } from './Empty';
 
 import type { ListItemComponent } from './ListItem';
-import type { ListEmptyComponent } from './ListEmpty';
+import type { EmptyProps } from './Empty';
 
 import classNames from '../../utils/classNames';
-
-type ListComponent = React.FunctionComponent<ListProps> & { Item: ListItemComponent; Empty: ListEmptyComponent };
-
-type ListButton = {
-  text: string;
-  click: () => void;
-};
 interface ListProps {
-  button?: ListButton;
+  length: number;
+  /**
+   * { heading: string; message: string; children: ReactNode;}
+   *
+   */
+  empty?: EmptyProps;
   classes?: string;
   children: ReactNode;
 }
 
-const List: ListComponent = ({ button, classes, children }) => {
+const List: React.FC<ListProps> & { Item: ListItemComponent } = ({ length, empty, classes, children }) => {
   return (
-    <>
-      {button ? (
-        <div className="mb-4">
-          <Button onClick={button.click}>{button.text}</Button>
-        </div>
-      ) : null}
-      <ul className={classNames('divide-y divide-gray-200', classes ? classes : '')}>{children}</ul>
-    </>
+    <ul className={classNames('divide-y divide-gray-200', classes ? classes : '')}>
+      {!length && empty ? (
+        <Empty heading={empty.heading} message={empty.message}>
+          {empty.children}
+        </Empty>
+      ) : (
+        children
+      )}
+    </ul>
   );
 };
 
 List.Item = ListItem;
-List.Empty = ListEmpty;
 
 export { List };
