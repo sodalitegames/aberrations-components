@@ -2,12 +2,16 @@ import React from 'react';
 
 import classNames from '../../utils/classNames';
 
+export type ButtonTheme = 'dark' | 'alert' | 'standard' | 'text';
+export type ButtonSize = 'small' | 'standard' | 'large';
+export type ButtonType = 'rounded' | 'block' | 'inline';
+
 export interface ButtonProps {
   onClick?: () => void;
   classes?: string;
-  size?: 'small' | 'standard' | 'large';
-  theme?: 'dark' | 'alert' | 'standard' | 'text';
-  type?: 'rounded' | 'block' | 'inline';
+  size?: ButtonSize;
+  theme?: ButtonTheme;
+  type?: ButtonType;
   disabled?: boolean;
   disabledMessage?: string;
   children: string;
